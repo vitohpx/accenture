@@ -9,6 +9,11 @@ namespace accenture_backend.DataContext
         public DbSet<Empresa> Empresas { get; set; }
         public DbSet<Fornecedor> Fornecedores { get; set; }
 
+        public ApiDbContext(DbContextOptions<ApiDbContext> options)
+            : base(options)
+        {
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var configuration = new ConfigurationBuilder()

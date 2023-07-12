@@ -17,6 +17,6 @@ namespace accenture_backend.Models
 
         public DateTime? DataNascimento { get; set; }
 
-        public List<Empresa> Empresas { get; set; }
+        public List<string> EmpresaCNPJ { get; set; }
     }
 }
