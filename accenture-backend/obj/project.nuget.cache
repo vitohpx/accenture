@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "RHUcuMNQx5Pb2tkA7uZm/taBL+ClEdiqAN9noS83X8nql/pq5mu83bzq5GgV7QPMpaRt0/ULPv0BeZGT8tggiQ==",
+  "dgSpecHash": "pbfZ2/gRwGiCXPlonvJ7TJTtWZXjIHe6Azi3ss/1dBGyejyBd7q/apAFDVnptP+4pr/h6mkZCXSX5EKUvQXEqA==",
   "success": true,
   "projectFilePath": "C:\\Users\\vitor\\Documents\\accenture\\accenture-backend\\accenture-backend.csproj",
   "expectedPackageFiles": [
@@ -45,6 +45,7 @@
     "C:\\Users\\vitor\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.18.1\\microsoft.visualstudio.azure.containers.tools.targets.1.18.1.nupkg.sha512",
     "C:\\Users\\vitor\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\vitor\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\vitor\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\vitor\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\vitor\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\vitor\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
