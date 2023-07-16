@@ -87,3 +87,4 @@ C:\Users\vitor\Documents\accenture\accenture-backend\obj\Debug\net6.0\accenture-
 C:\Users\vitor\Documents\accenture\accenture-backend\obj\Debug\net6.0\ref\accenture-backend.dll
 C:\Users\vitor\Documents\accenture\accenture-backend\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Users\vitor\Documents\accenture\accenture-backend\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\vitor\Documents\accenture\accenture-backend\bin\Debug\net6.0\System.Web.Cors.dll

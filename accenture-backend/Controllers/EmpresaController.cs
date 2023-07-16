@@ -1,5 +1,6 @@
 ﻿using accenture_backend.DataContext;
 using accenture_backend.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,6 +8,7 @@ namespace accenture_backend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+
     public class EmpresaController : ControllerBase
     {
         private readonly ApiDbContext _dbContext;
@@ -102,5 +104,6 @@ namespace accenture_backend.Controllers
 
             return Ok(fornecedores);
         }
+
     }
 }

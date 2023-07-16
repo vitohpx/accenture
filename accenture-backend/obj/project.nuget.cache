@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "pbfZ2/gRwGiCXPlonvJ7TJTtWZXjIHe6Azi3ss/1dBGyejyBd7q/apAFDVnptP+4pr/h6mkZCXSX5EKUvQXEqA==",
+  "dgSpecHash": "pEhq4LcdZWGQ7EbVhdpaC523WTYGvidEmlRISvu5vVx3T03qc3LOGfCHpZ7QL8osX06jqV7e1twIieVyOt8otA==",
   "success": true,
   "projectFilePath": "C:\\Users\\vitor\\Documents\\accenture\\accenture-backend\\accenture-backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vitor\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\vitor\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\vitor\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\vitor\\.nuget\\packages\\microsoft.aspnet.cors\\5.3.0-preview1\\microsoft.aspnet.cors.5.3.0-preview1.nupkg.sha512",
     "C:\\Users\\vitor\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\vitor\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\vitor\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.1\\microsoft.data.sqlclient.5.1.1.nupkg.sha512",
@@ -74,5 +75,16 @@
     "C:\\Users\\vitor\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\vitor\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'Microsoft.AspNet.Cors 5.3.0-preview1' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' em vez da estrutura de destino do projeto 'net6.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "libraryId": "Microsoft.AspNet.Cors",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }
