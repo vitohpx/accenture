@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Button, List, ListItem, ListItemText, TextField, IconButton } from '@mui/material';
+import { Button, List, ListItem, ListItemText, TextField, IconButton, InputAdornment } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import DeleteIcon from '@mui/icons-material/Delete';
+import SearchIcon from '@mui/icons-material/Search';
 import api from '../../services/api';
 import CadastroEmpresa from './CadastroEmpresa';
 import './empresa.css';
@@ -10,6 +12,7 @@ const Empresas = () => {
     const [filtroNome, setFiltroNome] = useState('');
     const [countFornecedores, setCountFornecedores] = useState(0);
     const [clickVerFuncionarios, setClickVerFornecedores] = useState({});
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchEmpresas();
@@ -20,6 +23,7 @@ const Empresas = () => {
             const response = await api.get('/empresa');
             setEmpresas(response.data);
         } catch (error) {
+            console.error(error);
         }
     };
 
@@ -43,7 +47,7 @@ const Empresas = () => {
             const empresaIndex = empresas.findIndex((empresa) => empresa.cnpj === cnpj);
             const updatedEmpresas = [...empresas];
             updatedEmpresas[empresaIndex].fornecedores = response.data;
-            setCountFornecedores(updatedEmpresas[empresaIndex].fornecedores.length)
+            setCountFornecedores(updatedEmpresas[empresaIndex].fornecedores.length);
             setClickVerFornecedores((prevClicado) => ({
                 ...prevClicado,
                 [cnpj]: true,
@@ -56,7 +60,11 @@ const Empresas = () => {
                     return updatedClicado;
                 });
             }, 1000);
+            if (response.data.length > 0) {
+                navigate(`/fornecedores/${cnpj}`);
+            }
         } catch (error) {
+            console.error(error);
         }
     };
 
@@ -66,27 +74,43 @@ const Empresas = () => {
             const updatedEmpresas = empresas.filter((empresa) => empresa.cnpj !== cnpj);
             setEmpresas(updatedEmpresas);
         } catch (error) {
+            console.error(error);
         }
     };
 
+    const handleFornecedoresClick = () => {
+        navigate('/fornecedores');
+    };
+
     return (
-        <div>
-            <CadastroEmpresa addEmpresa={addEmpresa} />
-            <div className="filter-field">
+        <div className="page-container">
+            <h1>Accenture</h1>
+            <div className="cadastro-fornecedores-container">
+                <Button onClick={handleFornecedoresClick} variant="contained" color="primary">
+                    Cadastrar Fornecedores
+                </Button>
+            </div>
+            <div className="filter-empresas">
                 <TextField
-                    label="Filtrar por Nome"
+                    label="Buscar Empresa"
                     value={filtroNome}
                     onChange={handleFiltroNomeChange}
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position="end">
+                                <SearchIcon />
+                            </InputAdornment>
+                        ),
+                    }}
                 />
             </div>
             <div className="container">
+                <CadastroEmpresa addEmpresa={addEmpresa} />
+                <h3>Empresas/CNPJ</h3>
                 <List>
                     {filtrarEmpresas().map((empresa) => (
                         <ListItem key={empresa.cnpj} className="list-item">
-                            <ListItemText
-                                primary={empresa.nomeFantasia}
-                                secondary={empresa.cnpj}
-                            />
+                            <ListItemText className='list-item-text' primary={empresa.nomeFantasia} secondary={empresa.cnpj} />
                             <Button onClick={() => handleVerFornecedoresClick(empresa.cnpj)}>
                                 Ver Fornecedores
                             </Button>
@@ -94,7 +118,7 @@ const Empresas = () => {
                                 <p className="no-fornecedores">Não há fornecedores</p>
                             )}
                             <IconButton onClick={() => handleDeleteEmpresa(empresa.cnpj)}>
-                                <DeleteIcon />
+                                <DeleteIcon className='delete-icon' />
                             </IconButton>
                         </ListItem>
                     ))}

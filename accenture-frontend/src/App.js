@@ -1,18 +1,15 @@
 import React from 'react';
-import { Container, Grid } from '@mui/material';
+import { Route, Routes } from 'react-router-dom';
 import Empresas from './components/Empresa/Empresas';
-import CadastroEmpresa from './components/Empresa/CadastroEmpresa';
+import Fornecedores from './components/Fornecedor/Fornecedores';
 
 const App = () => {
   return (
-    <Container maxWidth="md">
-      <Grid container spacing={2}>
-        <Grid item xs={6}>
-          <h2>Empresas</h2>
-          <Empresas />
-        </Grid>
-      </Grid>
-    </Container>
+    <Routes>
+      <Route exact path="*" element={<Empresas />} />
+      <Route path="/fornecedores" element={<Fornecedores />} />
+      <Route path="/fornecedores/:cnpj" element={<Fornecedores />} />
+    </Routes>
   );
 };
 

@@ -1,0 +1,79 @@
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.button-voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.grid-container .button-filtrar {
+    margin-top: 10px;
+    margin-right: 50px;
+}
+
+.form-field {
+    margin-bottom: 10px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.menu-item {
+    display: block;
+}
+
+.form-field .MuiInputBase-root {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field .MuiMenu-paper {
+    display: flex;
+    flex-direction: column;
+}
+
+.select-field {
+    width: 220px;
+    position: relative;
+}
+
+.date-textfield {
+    width: 220px;
+    position: relative;
+}
+  
+.date-textfield .MuiInputBase-root {
+    width: 100%;
+}
+
+.date-textfield .MuiInputBase-input[type="date"]::-webkit-calendar-picker-indicator {
+    align-self: flex-end;
+    margin-left: auto;
+    margin-right: 8px;
+    color: lightgray
+}
+
+.date-textfield .MuiInputBase-input[type="date"]::-webkit-datetime-edit,
+.date-textfield .MuiInputBase-input[type="date"]::-webkit-inner-spin-button,
+.date-textfield .MuiInputBase-input[type="date"]::-webkit-clear-button {
+    text-align: center;
+}
+
+
+
+.date-textfield .MuiInputBase-input[type="date"] + .MuiInputBase-formControl {
+    margin-top: 16px;
+}
+
