@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { TextField, Button, Snackbar } from '@mui/material';
+import { TextField, Button, Alert } from '@mui/material';
 import api from '../../services/api';
+import './empresa.css';
+
 const CadastroEmpresa = ({ addEmpresa }) => {
     const [cnpj, setCnpj] = useState('');
     const [nomeFantasia, setNomeFantasia] = useState('');
@@ -19,12 +21,15 @@ const CadastroEmpresa = ({ addEmpresa }) => {
             });
 
             setSuccessMessage('Empresa cadastrada com sucesso!');
+            setTimeout(() => setSuccessMessage(''), 3000);
             clearForm();
             addEmpresa({ cnpj, nomeFantasia });
 
 
         } catch (error) {
             setErrorMessage('Ocorreu um erro ao cadastrar a empresa.');
+            setTimeout(() => setErrorMessage(''), 3000);
+
         }
     };
 
@@ -34,39 +39,47 @@ const CadastroEmpresa = ({ addEmpresa }) => {
         setCep('');
     };
 
-    const handleCloseSnackbar = () => {
-        setErrorMessage('');
-        setSuccessMessage('');
-    };
-
     return (
         <form onSubmit={handleSubmit}>
             <TextField
                 label="CNPJ"
                 value={cnpj}
                 onChange={(e) => setCnpj(e.target.value)}
+                className="form-field"
             />
             <TextField
                 label="Nome Fantasia"
                 value={nomeFantasia}
                 onChange={(e) => setNomeFantasia(e.target.value)}
+                className="form-field"
             />
             <TextField
                 label="CEP"
                 value={cep}
                 onChange={(e) => setCep(e.target.value)}
+                className="form-field"
             />
-            <Button type="submit" variant="contained">
+            <Button type="submit" variant="contained" className="button-submit"
+            >
                 Cadastrar Empresa
             </Button>
 
-            <Snackbar open={!!errorMessage} autoHideDuration={3000} onClose={handleCloseSnackbar}>
-                <div>{errorMessage}</div>
-            </Snackbar>
+            {errorMessage && (
+                <div className="alert-container">
+                    <Alert severity="error" onClose={() => setErrorMessage('')} className="alert">
+                        {errorMessage}
+                    </Alert>
+                </div>
+            )}
 
-            <Snackbar open={!!successMessage} autoHideDuration={3000} onClose={handleCloseSnackbar}>
-                <div>{successMessage}</div>
-            </Snackbar>
+            {successMessage && (
+                <div className="alert-container">
+                    <Alert severity="success" onClose={() => setSuccessMessage('')} className="alert">
+                        {successMessage}
+                    </Alert>
+                </div>
+            )}
+
         </form>
     );
 };

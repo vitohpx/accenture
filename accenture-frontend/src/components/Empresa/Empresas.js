@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Button, List, ListItem, ListItemText, TextField } from '@mui/material';
+import { Button, List, ListItem, ListItemText, TextField, IconButton } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 import api from '../../services/api';
 import CadastroEmpresa from './CadastroEmpresa';
+import './empresa.css';
 
 const Empresas = () => {
     const [empresas, setEmpresas] = useState([]);
@@ -58,31 +60,46 @@ const Empresas = () => {
         }
     };
 
+    const handleDeleteEmpresa = async (cnpj) => {
+        try {
+            await api.delete(`/empresa/${cnpj}`);
+            const updatedEmpresas = empresas.filter((empresa) => empresa.cnpj !== cnpj);
+            setEmpresas(updatedEmpresas);
+        } catch (error) {
+        }
+    };
 
     return (
         <div>
             <CadastroEmpresa addEmpresa={addEmpresa} />
-            <TextField
-                label="Filtrar por Nome"
-                value={filtroNome}
-                onChange={handleFiltroNomeChange}
-            />
-            <List>
-                {filtrarEmpresas().map((empresa) => (
-                    <ListItem key={empresa.cnpj}>
-                        <ListItemText
-                            primary={empresa.nomeFantasia}
-                            secondary={empresa.cnpj}
-                        />
-                        <Button onClick={() => handleVerFornecedoresClick(empresa.cnpj)}>
-                            Ver Fornecedores
-                        </Button>
-                        {clickVerFuncionarios[empresa.cnpj] && countFornecedores === 0 && (
-                            <p>Não há fornecedores</p>
-                        )}
-                    </ListItem>
-                ))}
-            </List>
+            <div className="filter-field">
+                <TextField
+                    label="Filtrar por Nome"
+                    value={filtroNome}
+                    onChange={handleFiltroNomeChange}
+                />
+            </div>
+            <div className="container">
+                <List>
+                    {filtrarEmpresas().map((empresa) => (
+                        <ListItem key={empresa.cnpj} className="list-item">
+                            <ListItemText
+                                primary={empresa.nomeFantasia}
+                                secondary={empresa.cnpj}
+                            />
+                            <Button onClick={() => handleVerFornecedoresClick(empresa.cnpj)}>
+                                Ver Fornecedores
+                            </Button>
+                            {clickVerFuncionarios[empresa.cnpj] && countFornecedores === 0 && (
+                                <p className="no-fornecedores">Não há fornecedores</p>
+                            )}
+                            <IconButton onClick={() => handleDeleteEmpresa(empresa.cnpj)}>
+                                <DeleteIcon />
+                            </IconButton>
+                        </ListItem>
+                    ))}
+                </List>
+            </div>
         </div>
     );
 };

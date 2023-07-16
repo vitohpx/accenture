@@ -1,0 +1,55 @@
+.filter-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+  
+.filter-field .MuiInputLabel-root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+  
+.list-item {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+  
+.no-fornecedores {
+margin-top: 10px;
+}
+  
+.alert-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    z-index: 9999;
+}
+  
+.alert {
+    width: 300px;
+}
+
+.form-field {
+    margin-bottom: 10px;
+}
+  
+.button-submit {
+    margin-top: 10px;
+}
+  
