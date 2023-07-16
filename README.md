@@ -40,6 +40,13 @@ Siga as instruções abaixo para rodar o projeto em seu ambiente de desenvolvime
   npm install
   ```
 
+  or, please
+
+  ```
+  npm install --force
+  ```
+
+
 - Após a instalação, execute o seguinte comando para iniciar o servidor de desenvolvimento:
 
   ```
@@ -69,3 +76,11 @@ Se desejar rodar o projeto utilizando Docker, siga as etapas abaixo:
 ## Conclusão
 
 Com as instruções acima, você será capaz de rodar o projeto em seu ambiente de desenvolvimento. Certifique-se de ter os pré-requisitos instalados corretamente e siga as etapas conforme mencionado. Em caso de dúvidas ou problemas, consulte a documentação adicional ou entre em contato comigo (vitorxaveiro@gmail.com). Por fim, foi um projeto bem desafiador onde aprendi coisas novas e adaptei o que já conhecia, escolhi as linguagens mencionadas acima, pois foi o que estava usando na minha mais recente experiência profissional e assim poderia agilizar a conclusão do desafio. 
+
+## Imagens do sistema
+
+![empresa](pictures/accenture-empresa.png)
+
+### fornecedores da empresa vasco
+![fornecedores](pictures/accenture-forncedores-do-vasco.png)
+
