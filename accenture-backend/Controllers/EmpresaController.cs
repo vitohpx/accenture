@@ -1,4 +1,5 @@
 ﻿using accenture_backend.DataContext;
+using accenture_backend.Migrations;
 using accenture_backend.Models;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -72,15 +73,10 @@ namespace accenture_backend.Controllers
         [HttpDelete("{cnpj}")]
         public IActionResult DeleteEmpresa(string cnpj)
         {
-            var empresa = _dbContext.Empresas.Include(e => e.Fornecedores).FirstOrDefault(e => e.CNPJ == cnpj);
+            var empresa = _dbContext.Empresas.FirstOrDefault(e => e.CNPJ == cnpj);
             if (empresa == null)
             {
                 return NotFound();
-            }
-
-            foreach (var fornecedor in empresa.Fornecedores)
-            {
-                fornecedor.EmpresaCNPJ = null;
             }
 
             _dbContext.Empresas.Remove(empresa);
@@ -89,18 +85,14 @@ namespace accenture_backend.Controllers
             return NoContent();
         }
 
+
         [HttpGet("{cnpj}/fornecedores")]
         public IActionResult GetFornecedoresByEmpresa(string cnpj)
         {
-            var fornecedores = _dbContext.Empresas
-                .Include(e => e.Fornecedores)
-                .FirstOrDefault(e => e.CNPJ == cnpj)?
-                .Fornecedores;
 
-            if (fornecedores == null)
-            {
-                return NotFound();
-            }
+            var fornecedores = _dbContext.Fornecedores
+                .Where(f => f.EmpresaCNPJ.Any(c => c == cnpj))
+                .ToList();
 
             return Ok(fornecedores);
         }

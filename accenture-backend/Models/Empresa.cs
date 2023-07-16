@@ -13,6 +13,6 @@ namespace accenture_backend.Models
 
         public string CEP { get; set; }
 
-        public List<Fornecedor> Fornecedores { get; set; }
+        //public List<Fornecedor> Fornecedores { get; set; }
     }
 }
